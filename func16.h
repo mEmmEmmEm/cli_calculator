@@ -6,9 +6,9 @@
 
 //void opp(int opa);
 
-void er();
+//void er();
 
-void plus(int a, int b, int opa, int opb);
+void plus16(int a, int b);
 
 #endif
 
