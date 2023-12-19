@@ -24,16 +24,19 @@ int perevod8(char* str){
 }
 
 void plus8(int a, int b){
-	printf("0%o (%d)\n", a + b, a + b);
+	if(a + b < 0) printf("-0%o (%d)\n", abs(a + b), a + b);
+	else printf("0%o (%d)\n", a + b, a + b);
 
 }
 
 void mp8(int a, int b){
-	printf("0%o (%d)\n", a * b, a * b);
+	if(a * b < 0) printf("-0%o (%d)\n", abs(a * b), a * b);
+	else printf("0%o (%d)\n", a * b, a * b);
 }
 
 void df8(int a, int b){
-	printf("0%o (%d)\n", a - b, a- b);
+	if(a - b < 0) printf("-0%o (%d)\n", abs(a - b), a - b);
+	else printf("0%o (%d)\n", a - b, a- b);
 }
 
 void pros8(int a, int b){
@@ -54,5 +57,6 @@ void x_or8(int a, int b){
 
 void inver8(int a){
 	if(a == 0) printf("0%o (%d)\n", 0, 0);
-	printf("0%o (%d)\n", -(a + 1), -(a + 1));
+	if(-(a + 1) < 0) printf("-0%o (%d)\n", abs(-(a + 1)), -(a + 1));
+	if(-(a + 1) >= 0) printf("0%o (%d)\n", -(a + 1), -(a + 1));
 }

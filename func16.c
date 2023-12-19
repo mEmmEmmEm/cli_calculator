@@ -6,7 +6,7 @@
 
 int perevod16(char* str){
 	int rez = 0;
-	int start;
+	int start = 2;
 	if(str[0] == '-'){
 		start = 3;
 	}
@@ -16,7 +16,7 @@ int perevod16(char* str){
 	if(str[0] == '~'){ 
 		if(str[1] != '-') {
 			start =3;}}
-	else start = 2;
+
 	for(start; start < strlen(str); start++){
 		int step = pow(16, strlen(str) - start - 1);
 		/*if(isdigit(str[start]) != 0){
@@ -45,7 +45,7 @@ int perevod16(char* str){
 				rez += (int)(str[start] - '0') * step;
 			}
 			else{
-			printf("%c error16\n", str[start]);
+			printf("%c %c  error16\n", str[start], str[start+1]);
 			exit(1);}
 		}
 	}
@@ -55,16 +55,19 @@ int perevod16(char* str){
 }
 
 void plus16(int a, int b){
-	printf("0x%x (%d)\n", a + b, a + b);
+	if(a + b < 0) printf("-0x%x (%d)\n", abs(a + b), a + b);
+	else printf("0x%x (%d)\n", a + b, a + b);
 
 }
 
 void mp16(int a, int b){
-	printf("0x%x (%d)\n", a * b, a * b);
+	if(a * b < 0) printf("-0x%x (%d)\n", abs(a * b), a * b);
+	else printf("0x%x (%d)\n", a * b, a * b);
 }
 
 void df16(int a, int b){
-	printf("0x%x (%d)\n", a - b, a- b);
+	if(a - b < 0) printf("-0x%x (%d)\n", abs(a - b), a - b);
+	else printf("0x%x (%d)\n", a - b, a- b);
 }
 
 void pros16(int a, int b){
@@ -85,5 +88,6 @@ void x_or16(int a, int b){
 
 void inver16(int a){
 	if( a == 0) printf("0x%x (%d)\n", 0, 0);
-	else printf("0x%x (%d)\n", -(a + 1), -(a + 1));
+	if(-a - 1 < 0) printf("-0x%x (%d)\n", abs(-(a + 1)), -(a + 1));
+	if(-a - 1 >= 0)  printf("0x%x (%d)\n", -(a + 1), -(a + 1));
 }

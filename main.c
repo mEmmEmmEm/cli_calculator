@@ -61,9 +61,9 @@ int main(){
 	}
 	else{
 
-	char num1_b[128];
-	char op_b[2];
-	char num2_b[128];
+	char num1_b[128] = {0};
+	char op_b[2] = {0};
+	char num2_b[128] = {0};
 	sscanf(input,"%127s %1s %127s", num1_b, op_b, num2_b);
 	num1s = strdup(num1_b);
 	if(num1s[0] == '-') sign = -1;
@@ -78,7 +78,11 @@ int main(){
 
 	if(op1 == -1 || op2 == -1){
 		printf("error2\n");
+		free(input);
+		free(num1s);
+		free(num2s);
 		return 1;
+
 	}
 	
 	int num2;
@@ -94,227 +98,13 @@ int main(){
 	if(op2 == 2) num2 = sign2 * perevod2(num2s);
 	//printf("%d\n", num2);
 
-
 	
-
-	//printf("%s\n %s\n %s\n", num1, op, num2);
-	
-	/*
-	int len = strlen(input);
-	char num1[128];
-	char num2[128];
-	int i = 0;
-
-	int start = 0;
-
-	for(i; i < strlen(input); i++){
-		if(isspace(input[i])){
-			break;
-		}
-		else num1[i] = input[i];
-	}
-	if(num1[0] != '~'){
-		printf("%d\n", i);
-		i = i + 1;
-		for(i; i < strlen(input); i++){
-			if(isspace(input[i])) break;
-			znak = input[i];
-		}
-		if(znak == 0){
-			printf("error\n");
-			return 1;
-		}
-		i = i + 1;
-		int j = i;
-		for(i; i < strlen(input); i++){
-			if(isspace(input[i])) break;
-			num2[i - j] = input[i];
-		}
-		if(num2 == NULL){
-			printf("error\n");
-			return 1;
-		}
-	}
-	printf("%s\n", num1);
-	else{
-		start = 1;
-		znak = '~';
-	}
-*/
-	/*if(num1[start] == '-'){
-		sign = -1;
-		start++;
-	}
-	if(num1[start] == '1'){
-		for(start; start < strlen(num1); start++){
-			if(!('0' <=  num1[start] && num1[start] <= '1')){
-				printf("Ошибка ввода1\n");
-				printf("%c\n %s\n %d\n", num1[start], num1, strlen(num1));
-				return 1;
-			}
-		}
-		op1 = 2;
-	}
-
-	if(num1[start] == '0' && num1[start + 1] == 'x'){
-		for(start + 1; start < strlen(num1); start++){
-			if(!(('0' <= num1[start] && num1[start] <= '9') || ('a' <= num1[start] && num1[start] <= 'f') || ('A' <= num1[i] && num1[start] <= 'F'))) {
-				printf("Ошибка ввода2\n");
-				return 1;
-			}
-		}
-		op1 = 16;
-	}
-	if(num1[start] == '0' && num1[start + 1] != 'x'){
-			for(start; start < strlen(num1); start++){
-				if('0' > num1[start] || '7' < num1[start]){
-					printf("Ошибка ввода3\n");
-					return 1;
-				}
-			}
-			op1 = 8;
-	}
-	 if(num2 != NULL){
-		 int sign2 = 1;
-		 start = 0;
-	
-		if(num2[start] == '-'){
-			sign2 = -1;
-			start++;
-		}
-		if(num2[start] == '1'){
-			for(start; start < strlen(num2); start++){
-				if(!('0' <=  num2[start] || '1' >= num2[start])){
-					printf("Ошибка ввода4\n");
-					return 1;
-				}
-			}
-			op2 = 2;
-		}
-
-		if(num2[start] == '0' && num2[start + 1] == 'x'){
-			for(start + 1; start < strlen(num2); start++){
-				if(!(('0' <= num2[start] && num2[start] <= '9') || ('a' <= num2[start] && num2[start] <= 'f') || ('A' <= num2[i] && num2[start] <= 'F'))) {
-					printf("Ошибка ввода5\n");
-					return 1;
-				}
-			}
-			op2 = 16;
-		}
-		if(num2[start] == '0' && num2[start + 1] != 'x'){
-				for(start; start < strlen(num2); start++){
-					if('0' > num2[start] || '7' < num2[start]){
-						printf("Ошибка ввода6\n");
-						return 1;
-					}
-				}
-				op2 = 8;
-		}
-
-		
-	}	
-
-*/
-
-
-	/*while( i  < len - 1 && input[i] != ' '){
-		if(input[0] == '~'){
-			znak = '~';
-			++input;
-		}
-		if(input[0] == '-'){
-			sign = -1;
-			++input;
-		}
-		if(input[0] == '0' && input[1] == 'x'){
-		
-		}
-		if(input[0] == '0' && input[1] != 'x'){
-			//
-		}
-		if(intput[0] == '1'){
-			//
-		}
-
-	}*/
-
-	//char str_b[1024];
-	//char *str = (char *)str_b;
-	//char* strr = NULL; 
-	//char* str = NULL;
-	//getline(&strr, &len, stdin);
-	//fgets(str, 10000, stdin);
-	//sscanf(strr, "%99s\0", str);
-	//printf("%s\n", str);
-	/*if(str == NULL || strlen(str) <= 1 || str[0] == '\0') {
-		printf("error\n");
-		return 1;
-	}
-	
-	if (str[0] == '~') {
-		znak = '~';
-		++str;
-		
-	}
-	char* endptr = NULL;
-	int sign = 1;
-	if (str[0] == '-') {
-		//if (znak) { printf("ERROR"); return 1;}
-		sign = -1;
-		++str;
-	}
-
-	if(str[0] == '0' &&  str[1] == 'x'){
-		
-		num1 = sign * strtoq(str, &endptr, 16);
-	       	op1 = 16;	
-
-
-	}
-
-	if(str[0] == '0' && str[1] != 'x'){
-		num1 = sign * strtoq(str, &endptr, 8);
-		op1 = 8;
-	}
-	if(str[0] != '0' && str[0] != '~'){
-		num1 = sign * strtoq(str, &endptr, 2);
-		op1 = 2;
-	}
-	if(endptr[0]){
-		printf("ERROR\n");
-		return 1;
-	}
-	if (znak == 0) {
-
-		while (scanf("%c", &znak) && znak == ' ');
-		char str1_b[1024];
-		char *str1 = (char *)str1_b;
-		scanf("%s", str1);
-
-		int sign1 = 1;
-		if (str1[0] == '-') {
-			sign1 = -1;
-			++str1;
-		}
-		if(str1[0] == '0' && str1[1] == 'x'){
-			num2 = sign1 * strtoq(str1, &endptr, 16);
-			op2 = 16;
-		}
-		if(str1[0] == '0' && str1[1] != 'x'){
-			num2 = sign1 * strtoq(str1, &endptr, 8);
-			op2 = 8;
-		}
-		if(str1[0] != '0'){
-			num2 = sign1 * strtoq(str1, &endptr, 2);
-			op2 = 2;
-		}
-		if(endptr[0]){
-			printf("ERROR\n");
-			return 1;
-		}*/
 	if(znak != '~'){
 		if(op1 != op2){
 			printf("Ошибка: системы счисления не совпадают\n");
+			free(input);
+			free(num1s);
+			free(num2s);
 			return 1;
 		}
 		if(znak == '+'){
