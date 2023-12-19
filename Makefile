@@ -1,19 +1,16 @@
-.PHONY: all clean run
-
-all: nado
-
-nado: main func2 func8 func16
-	gcc main func2 func8 func16 -lm -o nado
-main: main.c
-	gcc main.c -c -lm -o main
-func2: func2.c
-	gcc func2.c -c -lm -o func2
-func8: func8.c
-	gcc func8.c -c -lm -o func8
-func16: func16.c
-	gcc func16.c -c -lm -o func16
-run: nado
-	./nado
-clean:
-	rm -rf main func2 func8 func16
-
+.PHONY: all run clean
+all: start
+clean: 
+	rm -rf start *.o
+run: start
+	./start
+main.o: main.c
+	gcc -c main.c
+func2.o: func2.c
+	gcc -c func2.c
+func8.o: func8.c
+	gcc -c func8.c
+func16.o: func16.c
+	gcc -c func16.c
+start: main.o func2.o func8.o func16.o
+	gcc main.o func2.o func8.o func16.o -o start
