@@ -1,6 +1,27 @@
 #include "func8.h"
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <math.h>
+#include <stdlib.h>
 
+int perevod8(char* str){
+	int rez = 0;
+	int start = 1;
+	if(str[start] == '-') start = 2;
+	if(str[0] == '~') if(str[2] == '-') start = 3;
+	if(str[0] == '~') if(str[2] != '-') start = 2;
+	for(start; start < strlen(str); start++){
+		if(isdigit(str[start]) && (int)(str[start]- '0') < 8){
+			rez += (int)(str[start] - '0') * pow(8, strlen(str) - start - 1);
+		}
+		else{
+			printf("error4\n");
+			exit(1);
+		}
+	}
+	return rez;
+}
 
 void plus8(int a, int b){
 	printf("0%o (%d)\n", a + b, a + b);
@@ -32,5 +53,6 @@ void x_or8(int a, int b){
 }
 
 void inver8(int a){
-	printf("0%o (%d)\n", -a, -a);
+	if(a == 0) printf("0%o (%d)\n", 0, 0);
+	printf("0%o (%d)\n", -(a + 1), -(a + 1));
 }

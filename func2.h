@@ -3,7 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-int perevod(int x);
+#include <math.h>
+#include <ctype.h>
+int perevod2(char* str);
+int perevod2to10(int x);
 void plus2(int a, int b);
 void mp2(int a, int b);
 void df2(int a, int b);
