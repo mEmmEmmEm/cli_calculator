@@ -68,5 +68,5 @@ void x_or2(int a, int b){
 
 void inver2(int a){
 	if(a == 0) printf("0 (0)");
-	else printf("%d (%d)\n", perevod2to10(-a), -a);
+	else printf("%d (%d)\n", perevod2to10(-(a + 1)), -(a + 1));
 }
