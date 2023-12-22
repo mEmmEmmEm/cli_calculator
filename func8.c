@@ -1,9 +1,5 @@
 #include "func8.h"
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <math.h>
-#include <stdlib.h>
+
 
 int perevod8(char* str){
 	int rez = 0;

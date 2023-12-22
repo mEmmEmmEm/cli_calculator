@@ -1,8 +1,4 @@
 #include "func16.h"
-#include <stdio.h>
-#include <math.h>
-#include <string.h>
-#include <ctype.h>
 
 int perevod16(char* str){
 	int rez = 0;

@@ -1,8 +1,4 @@
 #include "func2.h"
-#include <stdio.h>
-#include <math.h>
-#include <ctype.h>
-#include <string.h>
 
 int perevod2(char* str){
 	int rez = 0;

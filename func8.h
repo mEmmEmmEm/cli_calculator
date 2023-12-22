@@ -1,5 +1,5 @@
-#ifndef LAB28_H
-#define LAB28_H
+#ifndef FUNC8_H
+#define FUNC8_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

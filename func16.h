@@ -1,9 +1,10 @@
-#ifndef LAB2_H
-#define LAB2_H
+#ifndef FUNC16_H
+#define FUNC16_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 int perevod16(char* str);
 void plus16(int a, int b);
 void mp16(int a, int b);
